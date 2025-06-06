@@ -61,7 +61,7 @@ function App() {
   };
 
   return (
-    <main className="md:max-w-[1000px] max-w-[400px] mx-auto mt-5 flex flex-col gap-12">
+    <main className="md:max-w-[1000px] max-w-[350px] mx-auto mt-5 flex flex-col gap-12">
       <Overview balance={balance} />
       <YourCampaigns
         campaigns={campaigns}
