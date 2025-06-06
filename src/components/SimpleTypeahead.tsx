@@ -58,7 +58,7 @@ const SimpleTypeahead = ({
         placeholder="Type keyword and press Enter"
       />
       {filteredSuggestions.length > 0 && (
-        <ul className="border rounded shadow mt-1 bg-white max-h-40 overflow-auto">
+        <ul className="border rounded shadow mt-1 bg-white max-h-20 overflow-auto">
           {filteredSuggestions.map((s) => (
             <li
               key={s}
