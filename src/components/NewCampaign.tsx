@@ -158,7 +158,9 @@ const NewCampaign = ({ onAddCampaign }: Props) => {
             <DialogClose asChild>
               <Button variant="outline">Cancel</Button>
             </DialogClose>
-            <Button type="submit">Add Campaign</Button>
+            <DialogClose asChild>
+              <Button type="submit">Add Campaign</Button>
+            </DialogClose>
           </DialogFooter>
         </form>
       </DialogContent>
