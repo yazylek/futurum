@@ -53,7 +53,7 @@ const EditCampaign = ({ initialData, onUpdateCampaign }: Props) => {
           <Edit />
         </Button>
       </DialogTrigger>
-      <DialogContent className="max-h-[90dvh]">
+      <DialogContent className="max-h-[calc(100dvh-2rem)] overflow-y-auto p-4 rounded-md">
         <DialogHeader>
           <DialogTitle>Edit Campaign</DialogTitle>
         </DialogHeader>

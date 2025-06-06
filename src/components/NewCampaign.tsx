@@ -52,7 +52,7 @@ const NewCampaign = ({ onAddCampaign }: Props) => {
         </Button>
       </DialogTrigger>
 
-      <DialogContent className="sm:max-w-[425px] max-h-[90dvh]">
+      <DialogContent className="sm:max-w-[425px] max-h-[calc(100dvh-2rem)] overflow-y-auto p-4 rounded-md">
         <form onSubmit={handleSubmit}>
           <DialogHeader>
             <DialogTitle>Create new campaign</DialogTitle>
