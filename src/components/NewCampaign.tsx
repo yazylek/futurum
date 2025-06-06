@@ -121,7 +121,7 @@ const NewCampaign = ({ onAddCampaign }: Props) => {
                   defaultValue={location}
                   required
                 >
-                  <SelectTrigger className="w-[180px]">
+                  <SelectTrigger className="w-full">
                     <SelectValue placeholder="Select a town" />
                   </SelectTrigger>
                   <SelectContent>
