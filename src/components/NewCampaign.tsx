@@ -116,7 +116,11 @@ const NewCampaign = ({ onAddCampaign }: Props) => {
               </div>
               <div className="flex flex-col gap-2">
                 <Label htmlFor="town">Town *</Label>
-                <Select onValueChange={setLocation} defaultValue={location}>
+                <Select
+                  onValueChange={setLocation}
+                  defaultValue={location}
+                  required
+                >
                   <SelectTrigger className="w-[180px]">
                     <SelectValue placeholder="Select a town" />
                   </SelectTrigger>

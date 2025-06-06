@@ -89,7 +89,11 @@ const EditCampaign = ({ initialData, onUpdateCampaign }: Props) => {
             required
           />
           <div>
-            <Select onValueChange={setLocation} defaultValue={location}>
+            <Select
+              onValueChange={setLocation}
+              defaultValue={location}
+              required
+            >
               <SelectTrigger className="w-full">
                 <SelectValue placeholder="Select a town" />
               </SelectTrigger>
