@@ -15,6 +15,15 @@ import type { Campaign } from "@/App";
 import { useState } from "react";
 import SimpleTypeahead from "./SimpleTypeahead";
 import { Switch } from "./ui/switch";
+import {
+  Select,
+  SelectContent,
+  SelectGroup,
+  SelectItem,
+  SelectLabel,
+  SelectTrigger,
+  SelectValue,
+} from "./ui/select";
 
 type Props = {
   onAddCampaign: (campaign: Campaign) => void;
@@ -23,6 +32,7 @@ type Props = {
 const NewCampaign = ({ onAddCampaign }: Props) => {
   const [tags, setTags] = useState<string[]>([]);
   const [status, setStatus] = useState(false);
+  const [location, setLocation] = useState<string>("");
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -36,7 +46,7 @@ const NewCampaign = ({ onAddCampaign }: Props) => {
       bidAmount: formData.get("bidAmount") as string,
       fund: formData.get("campaignFund") as string,
       status: status,
-      location: formData.get("town") as string,
+      location: location,
       radius: formData.get("radius") as string,
     };
 
@@ -106,7 +116,21 @@ const NewCampaign = ({ onAddCampaign }: Props) => {
               </div>
               <div className="flex flex-col gap-2">
                 <Label htmlFor="town">Town *</Label>
-                <Input id="town" name="town" required />
+                <Select onValueChange={setLocation} defaultValue={location}>
+                  <SelectTrigger className="w-[180px]">
+                    <SelectValue placeholder="Select a town" />
+                  </SelectTrigger>
+                  <SelectContent>
+                    <SelectGroup>
+                      <SelectLabel>Towns</SelectLabel>
+                      <SelectItem value="Kraków">Kraków</SelectItem>
+                      <SelectItem value="Poznań">Poznań</SelectItem>
+                      <SelectItem value="Łódź">Łódź</SelectItem>
+                      <SelectItem value="Warszawa">Warszawa</SelectItem>
+                      <SelectItem value="Gdańsk">Gdańsk</SelectItem>
+                    </SelectGroup>
+                  </SelectContent>
+                </Select>
               </div>
               <div className="flex flex-col gap-2">
                 <Label htmlFor="radius">Radius (km)*</Label>

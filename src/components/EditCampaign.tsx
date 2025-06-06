@@ -15,6 +15,15 @@ import { Input } from "./ui/input";
 import SimpleTypeahead from "./SimpleTypeahead";
 import { Switch } from "./ui/switch";
 import { Label } from "./ui/label";
+import {
+  Select,
+  SelectContent,
+  SelectGroup,
+  SelectItem,
+  SelectLabel,
+  SelectTrigger,
+  SelectValue,
+} from "./ui/select";
 
 type Props = {
   initialData: Campaign;
@@ -23,6 +32,7 @@ type Props = {
 
 const EditCampaign = ({ initialData, onUpdateCampaign }: Props) => {
   const [open, setOpen] = useState(false);
+  const [location, setLocation] = useState<string>("");
   const [status, setStatus] = useState(false);
   const [tags, setTags] = useState<string[]>(initialData.tags);
 
@@ -38,7 +48,7 @@ const EditCampaign = ({ initialData, onUpdateCampaign }: Props) => {
       bidAmount: formData.get("bidAmount") as string,
       fund: formData.get("campaignFund") as string,
       status: status,
-      location: formData.get("town") as string,
+      location: location,
       radius: formData.get("radius") as string,
     };
 
@@ -78,7 +88,23 @@ const EditCampaign = ({ initialData, onUpdateCampaign }: Props) => {
             defaultValue={initialData.fund}
             required
           />
-          <Input name="town" defaultValue={initialData.location} required />
+          <div>
+            <Select onValueChange={setLocation} defaultValue={location}>
+              <SelectTrigger className="w-full">
+                <SelectValue placeholder="Select a town" />
+              </SelectTrigger>
+              <SelectContent>
+                <SelectGroup>
+                  <SelectLabel>Towns</SelectLabel>
+                  <SelectItem value="Kraków">Kraków</SelectItem>
+                  <SelectItem value="Poznań">Poznań</SelectItem>
+                  <SelectItem value="Łódź">Łódź</SelectItem>
+                  <SelectItem value="Warszawa">Warszawa</SelectItem>
+                  <SelectItem value="Gdańsk">Gdańsk</SelectItem>
+                </SelectGroup>
+              </SelectContent>
+            </Select>
+          </div>
           <Input
             name="radius"
             type="number"
